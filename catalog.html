@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airnet Electrolux - 2026 Product Catalog</title>
+    
+    <!-- External CSS & Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf8fb;
+            color: #1b1b1d;
+        }
+        
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff;
+                color: #000000;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <!-- Print / Action Bar -->
+    <div class="no-print max-w-4xl mx-auto mb-8 flex justify-between items-center bg-white border border-slate-200 p-4 rounded-2xl shadow-sm">
+        <a href="index.html" class="flex items-center gap-1.5 text-xs font-bold text-slate-500 hover:text-black transition-colors">
+            <span class="material-symbols-outlined text-sm">arrow_back</span> Return to Store
+        </a>
+        <button onclick="window.print()" class="bg-black text-white px-5 py-2.5 rounded-full text-xs font-bold flex items-center gap-1.5 hover:opacity-90 active:scale-95 transition-all shadow-sm">
+            <span class="material-symbols-outlined text-sm">print</span> Print Catalog / Save as PDF
+        </button>
+    </div>
+
+    <!-- Catalog Page Container -->
+    <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 border border-slate-200 rounded-3xl shadow-sm print:border-none print:shadow-none print:p-0">
+        
+        <!-- Header / Letterhead -->
+        <div class="flex flex-col sm:flex-row justify-between items-start border-b-2 border-black pb-8 mb-10">
+            <div>
+                <h1 class="text-3xl font-extrabold tracking-tighter text-black uppercase">Airnet Electrolux</h1>
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">Premium Home Appliances Showroom</p>
+                <div class="flex items-center gap-2 mt-4 text-xs text-slate-600">
+                    <span class="flex items-center text-yellow-500">
+                        <span class="material-symbols-outlined fill-current text-[12px]">star</span>
+                        <span class="material-symbols-outlined fill-current text-[12px]">star</span>
+                        <span class="material-symbols-outlined fill-current text-[12px]">star</span>
+                        <span class="material-symbols-outlined fill-current text-[12px]">star</span>
+                        <span class="material-symbols-outlined fill-current text-[12px]">star_half</span>
+                    </span>
+                    <span class="font-bold text-black">4.6 / 5.0</span>
+                    <span>(96+ Justdial Reviews)</span>
+                </div>
+            </div>
+            <div class="text-left sm:text-right text-xs text-slate-500 mt-4 sm:mt-0 space-y-1">
+                <p class="font-bold text-black">Shop No. K-106, Lower Ground Floor,</p>
+                <p>Opposite Haldiram, Kalkaji, Delhi-110019</p>
+                <p>Phone: +91 7942694246 | Established 2015</p>
+                <p>GSTIN: 07**********1ZO</p>
+            </div>
+        </div>
+
+        <!-- Catalog Title -->
+        <div class="text-center mb-12">
+            <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase">Product Brochure</span>
+            <h2 class="text-2xl font-bold tracking-tight text-black mt-1">2026 Premium Appliances Collection</h2>
+            <p class="text-xs text-slate-500 mt-2">Authorized Dealer for Mitsubishi Electric, Electrolux, Panasonic, Lloyd, and O'General</p>
+        </div>
+
+        <!-- Air Conditioners Section -->
+        <div class="mb-12">
+            <h3 class="text-lg font-bold border-b border-slate-200 pb-2 mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-black">ac_unit</span> Air Conditioners
+            </h3>
+            
+            <div id="ac-list" class="space-y-6">
+                <!-- Dynamically loaded split/window/cassette ACs -->
+            </div>
+        </div>
+
+        <!-- Page break for nice PDF layout when printing -->
+        <div class="page-break"></div>
+
+        <!-- Laundry Solutions Section -->
+        <div class="mb-12 print:mt-12">
+            <h3 class="text-lg font-bold border-b border-slate-200 pb-2 mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-black">local_laundry_service</span> Laundry Solutions
+            </h3>
+            
+            <div id="laundry-list" class="space-y-6">
+                <!-- Dynamically loaded laundry products -->
+            </div>
+        </div>
+
+        <!-- Footer / Business Details -->
+        <div class="border-t border-slate-200 pt-8 mt-12 text-center text-xs text-slate-400">
+            <p class="font-semibold text-slate-500 mb-2">Accepted Payment Methods</p>
+            <p class="mb-6">UPI | Credit & Debit Cards (Visa, MasterCard, RuPay, Amex) | EMI Financing | Net Banking | Cash</p>
+            <p class="text-[10px]">Prices listed above are showroom estimates and subject to active dealer discounts. Visit Kalkaji showroom for customized bundles.</p>
+            <p class="text-[10px] mt-1">© 2026 Airnet Kalkaji. All rights reserved.</p>
+        </div>
+
+    </div>
+
+    <!-- Load data and render catalog -->
+    <script src="products.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const acList = document.getElementById('ac-list');
+            const laundryList = document.getElementById('laundry-list');
+            
+            if (!acList || !laundryList) return;
+            
+            const acs = products.filter(p => p.category === 'ac');
+            const laundry = products.filter(p => p.category === 'laundry');
+            
+            // Render ACs
+            acList.innerHTML = acs.map(prod => renderItemHtml(prod)).join('');
+            
+            // Render Laundry
+            laundryList.innerHTML = laundry.map(prod => renderItemHtml(prod)).join('');
+        });
+        
+        function renderItemHtml(prod) {
+            return `
+                <div class="flex flex-col sm:flex-row justify-between border-b border-slate-100 pb-4 mb-4 last:border-0 last:pb-0 last:mb-0">
+                    <div class="flex-1 pr-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 bg-slate-100 rounded text-slate-700">${prod.brand}</span>
+                            <span class="text-[10px] font-bold text-slate-400 uppercase">${prod.subCategory} | ${prod.energyRating}</span>
+                        </div>
+                        <h4 class="text-sm font-semibold text-black mt-1">${prod.name}</h4>
+                        <p class="text-xs text-slate-500 mt-1.5"><span class="font-semibold">Features:</span> ${prod.features.join(', ')}</p>
+                        <p class="text-xs text-slate-400 mt-1"><span class="font-semibold text-slate-500">Specs:</span> ${Object.entries(prod.specs).map(([key, val]) => `${key}: ${val}`).join(' | ')}</p>
+                    </div>
+                    <div class="text-left sm:text-right mt-3 sm:mt-0 flex flex-col justify-center min-w-[150px]">
+                        <span class="text-[10px] text-slate-400 line-through leading-none">MRP ₹${prod.mrp.toLocaleString('en-IN')}</span>
+                        <span class="text-base font-bold text-black mt-1">₹${prod.price.toLocaleString('en-IN')}</span>
+                        <span class="text-[9px] text-green-600 font-semibold mt-0.5">Save ₹${(prod.mrp - prod.price).toLocaleString('en-IN')} (${Math.round(((prod.mrp - prod.price) / prod.mrp) * 100)}% Off)</span>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

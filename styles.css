@@ -1,0 +1,192 @@
+/* Airnet Electrolux - Premium Styles & Micro-Animations */
+
+/* Font smoothing and root settings */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Custom Scrollbar for Premium Feel */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #fcf8fb;
+}
+::-webkit-scrollbar-thumb {
+    background: #dcd9dc;
+    border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #7e7576;
+}
+
+/* Glassmorphism effects */
+.glass-panel {
+    background: rgba(252, 248, 251, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(207, 196, 197, 0.25);
+}
+
+.glass-panel-dark {
+    background: rgba(27, 27, 29, 0.85);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Premium Motion Transitions */
+.apple-ease {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.apple-ease-slow {
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Micro-Animations & Interactions */
+.scale-on-hover:hover {
+    transform: scale(1.02);
+}
+
+.scale-on-click:active {
+    transform: scale(0.96);
+}
+
+/* Custom Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes pulseBorder {
+    0%, 100% {
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        border-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+/* Applying Animations */
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Interactive Product Cards */
+.product-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(207, 196, 197, 0.3);
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Timings Indicator Pulse */
+.status-pulse {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+.status-pulse.open {
+    background-color: #10b981;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulseOpen 2s infinite;
+}
+.status-pulse.closed {
+    background-color: #ef4444;
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    animation: pulseClosed 2s infinite;
+}
+
+@keyframes pulseOpen {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+@keyframes pulseClosed {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* Custom styles for details expansion */
+details summary::-webkit-details-marker {
+    display: none;
+}
+details[open] summary span {
+    transform: rotate(180deg);
+}
+
+/* Chat bubble styling overrides */
+.chat-bubble-bot {
+    background-color: #f0edef;
+    color: #1b1b1d;
+    border-top-left-radius: 0.25rem;
+}
+
+.chat-bubble-user {
+    background-color: #000000;
+    color: #ffffff;
+    border-top-right-radius: 0.25rem;
+}
+
+/* Floating Action Bar styling update */
+#floating-action-bar {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
